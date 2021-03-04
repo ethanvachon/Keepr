@@ -1,8 +1,10 @@
 <template>
-  <i v-if="state.loaded == false" class="fas fa-spinner fa-spin"></i>
-  <div class="container-fluid" v-if="state.loaded">
-    <div class="masonry mt-3">
-      <keeps-component v-for="keep in state.keeps" :key="keep.id" :keep="keep" />
+  <div>
+    <i v-if="state.loaded == false" class="fas fa-spinner fa-spin"></i>
+    <div class="container-fluid" v-if="state.loaded">
+      <div class="masonry mt-3">
+        <keeps-component v-for="keep in state.keeps" :key="keep.id" :keep="keep" />
+      </div>
     </div>
   </div>
 </template>
@@ -19,13 +21,8 @@ export default {
       loaded: false
     })
     onMounted(async() => {
-      try {
-        await keepsService.getKeeps()
-      } catch (error) {
-        console.error(error)
-      } finally {
-        state.loaded = true
-      }
+      await keepsService.getKeeps()
+      state.loaded = true
     })
     return {
       state
