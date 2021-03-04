@@ -8,22 +8,26 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <h2>Keeps</h2>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#keepPost">
-          +
-        </button>
+        <div class="d-flex mt-2">
+          <h2>Keeps</h2>
+          <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#keepPost">
+            +
+          </button>
+        </div>
         <keep-post-modal />
       </div>
-      <div class="masonry">
-        <keeps-component :keep="keep" :page="'account'" v-for="keep in state.keeps" :key="keep.id" />
-      </div>
+    </div>
+    <div class="masonry">
+      <keeps-component :keep="keep" :page="'account'" v-for="keep in state.keeps" :key="keep.id" />
     </div>
     <div class="row">
       <div class="col-12">
-        <h2>Vaults</h2>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#vaultPost">
-          +
-        </button>
+        <div class="d-flex mt-2">
+          <h2>Vaults</h2>
+          <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#vaultPost">
+            +
+          </button>
+        </div>
         <vault-post-modal />
       </div>
     </div>
