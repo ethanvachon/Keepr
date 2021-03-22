@@ -17,23 +17,24 @@
         <div class="modal-body d-flex justify-content-around">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-6">
-                <div id="image" :style="`background: url('${keep.img}');`">
-                </div>
+              <div class="col-6 d-flex justify-content-center">
+                <!-- <div id="image" :style="`background: url('${keep.img}');`">
+                </div> -->
+                <img :src="keep.img" id="image" />
               </div>
-              <div class="col-6">
+              <div class="col-6 border-left">
                 <i class="fas fa-backspace" v-if="state.account.id == keep.creatorId" @click="deleteKeep()"></i>
                 <div class="d-flex justify-content-center border-bottom">
                   <h4>{{ keep.name }}</h4>
-                  <div class="d-flex justify-content-around" id="modal-stats">
+                  <div class="d-flex justify-content-center align-items-start" id="modal-stats">
                     <i class="fas fa-eye h4 mb-0"></i>
-                    <h4 class="mb-0">
+                    <h4 class="mb-0 pl-2">
                       {{ keep.views }}
                     </h4>
                   </div>
-                  <div class="d-flex justify-content-around" id="modal-stats">
+                  <div class="d-flex justify-content-center align-items-start" id="modal-stats">
                     <i class="fab fa-kickstarter h4 mb-0"></i>
-                    <h4 class="mb-0">
+                    <h4 class="mb-0 pl-2">
                       {{ keep.keeps }}
                     </h4>
                   </div>
@@ -45,7 +46,7 @@
                     </h6>
                   </router-link>
                 </div>
-                <div class="mt-5">
+                <div class="mt-3">
                   <h5>{{ keep.description }}</h5>
                 </div>
               </div>
@@ -133,10 +134,9 @@ export default {
   width: 10vw;
 }
 #image {
-  height: 40vw;
+  height: auto;
   width: auto;
-  background-size:contain !important;
-  background-repeat: no-repeat !important;
+  max-width: 30vw;
   border-radius: 5px 5px;
 }
 .modal-dialog {

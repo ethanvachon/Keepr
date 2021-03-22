@@ -24,12 +24,17 @@
         </div>
         <div class="modal-body">
           <form @submit.prevent="createVault()">
-            <input type="text" v-model="state.newVault.name" placeholder="name">
-            <input type="text" v-model="state.newVault.description" placeholder="description">
-            <input type="checkbox" name="private" v-model="state.newVault.isPrivate">
-            <button type="submit" class="btn btn-primary">
-              Create
-            </button>
+            <input class="m-2 text" type="text" v-model="state.newVault.name" placeholder="name">
+            <input class="m-2 text" type="text" v-model="state.newVault.description" placeholder="description">
+            <div class="text m-2 d-flex justify-content-center align-items-center">
+              <label for="private" class="mb-0 pr-1">Private</label>
+              <input type="checkbox" name="private" v-model="state.newVault.isPrivate">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">
+                Create
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -72,5 +77,7 @@ export default {
 }
 </script>
 <style scoped>
-
+.text {
+  width: 96%;
+}
 </style>

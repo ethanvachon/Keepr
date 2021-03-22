@@ -1,6 +1,6 @@
 <template>
   <div>
-    <i v-if="state.loaded == false" class="fas fa-spinner fa-spin"></i>
+    <div v-if="state.loaded == false" class="loader"></div>
     <div class="container-fluid" v-if="state.loaded">
       <div class="masonry mt-3">
         <keeps-component v-for="keep in state.keeps" :key="keep.id" :keep="keep" />
@@ -36,13 +36,23 @@ export default {
   column-count: 3;
   column-gap: 2em;
 }
-.fa-spinner {
-  width: fit-content;
-  height: fit-content;
-  font-size: 2em;
+.loader {
   text-align: center;
   margin-top: 20vh;
   margin-left: 47vw;
+}
+.loader {
+  border: 16px solid #c2c2c2;
+  border-top: 16px solid #2a93ad;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 </style>

@@ -18,9 +18,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item d-flex">
           <router-link :to="{ name: 'Home' }" class="nav-link">
             Home
+          </router-link>
+          <router-link v-if="user.isAuthenticated" :to="{ name: 'Account' }" class="nav-link">
+            Account
           </router-link>
         </li>
       </ul>
@@ -33,7 +36,7 @@
           Login
         </button>
 
-        <div class="dropdown" v-else>
+        <!-- <div class="dropdown" v-else>
           <div
             class="dropdown-toggle"
             @click="state.dropOpen = !state.dropOpen"
@@ -63,7 +66,7 @@
               logout
             </div>
           </div>
-        </div>
+        </div> -->
       </span>
     </div>
   </nav>
@@ -116,7 +119,10 @@ a:hover {
 .nav-link{
   text-transform: uppercase;
 }
-.nav-item .nav-link.router-link-exact-active{
+/* .nav-item .nav-link.router-link-exact-active{
   color: whitesmoke;
+} */
+.navbar {
+  font-family: 'Raleway', sans-serif
 }
 </style>

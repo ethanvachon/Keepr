@@ -25,12 +25,14 @@
         </div>
         <div class="modal-body">
           <form @submit.prevent="createVault()">
-            <input type="text" maxlength="14" v-model="state.newKeep.name" placeholder="name">
-            <input type="text" v-model="state.newKeep.description" placeholder="description">
-            <input type="text" v-model="state.newKeep.img" placeholder="image url">
-            <button type="submit" class="btn btn-primary">
-              Create
-            </button>
+            <input class="m-2" type="text" maxlength="14" v-model="state.newKeep.name" placeholder="name">
+            <input class="m-2" type="text" v-model="state.newKeep.description" placeholder="description">
+            <input class="m-2" type="text" v-model="state.newKeep.img" placeholder="image url">
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">
+                Create
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -73,5 +75,7 @@ export default {
 }
 </script>
 <style scoped>
-
+input {
+  width: 96%;
+}
 </style>
