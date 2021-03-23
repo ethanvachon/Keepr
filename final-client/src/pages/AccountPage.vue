@@ -30,26 +30,26 @@
         <div class="col-12">
           <div class="d-flex mt-2">
             <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#keepPost">
-              +
+              Add Keep +
             </button>
           </div>
           <keep-post-modal />
         </div>
       </div>
-      <div class="masonry" v-if="state.view == 'keeps'">
+      <div class="masonry mt-2" v-if="state.view == 'keeps'">
         <keeps-component :keep="keep" :page="'account'" v-for="keep in state.keeps" :key="keep.id" />
       </div>
       <div class="row" v-if="state.view == 'vaults'">
         <div class="col-12">
           <div class="d-flex mt-2">
             <button class="btn btn-primary ml-2" data-toggle="modal" data-target="#vaultPost">
-              +
+              Add Vault +
             </button>
           </div>
           <vault-post-modal />
         </div>
       </div>
-      <div class="row" v-if="state.view == 'vaults'">
+      <div class="row mt-2" v-if="state.view == 'vaults'">
         <div class="col-3" v-for="vault in state.vaults" :key="vault.id">
           <vaults-component :vault="vault" />
         </div>
@@ -105,8 +105,8 @@ export default {
   background-color: rgb(219, 219, 219);
 }
 .loader {
-  border: 16px solid #c2c2c2; /* Light grey */
-  border-top: 16px solid #2a93ad; /* Blue */
+  border: 16px solid #c2c2c2;
+  border-top: 16px solid #2a93ad;
   border-radius: 50%;
   width: 80px;
   height: 80px;

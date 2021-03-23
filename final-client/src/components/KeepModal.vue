@@ -23,7 +23,17 @@
                 <img :src="keep.img" id="image" />
               </div>
               <div class="col-6 border-left">
-                <i class="fas fa-backspace" v-if="state.account.id == keep.creatorId" @click="deleteKeep()"></i>
+                <!-- <i class="fas fa-backspace" v-if="state.account.id == keep.creatorId" @click="deleteKeep()"></i> -->
+                <div class="dropdown">
+                  <h6 v-if="state.account.id == keep.creatorId">
+                    ...
+                  </h6>
+                  <div class="dropdown-content">
+                    <p @click="deleteKeep()">
+                      delete
+                    </p>
+                  </div>
+                </div>
                 <div class="d-flex justify-content-center border-bottom">
                   <h4>{{ keep.name }}</h4>
                   <div class="d-flex justify-content-center align-items-start" id="modal-stats">
@@ -54,16 +64,28 @@
           </div>
         </div>
         <div class="modal-footer">
-          <div v-if="state.addKeep == true">
+          <!-- <div v-if="state.addKeep == true">
             <div v-for="vault in state.vaults" :key="vault.id">
               <button class="btn btn-primary" @click="addKeepToVault(vault.id)">
                 {{ vault.name }}
               </button>
             </div>
-          </div>
-          <button class="btn btn-primary" v-if="state.addKeep == false && state.user.isAuthenticated" @click="getVaults">
+          </div> -->
+          <!-- <button class="btn btn-primary" v-if="state.addKeep == false && state.user.isAuthenticated" @click="getVaults">
             Add to vault
-          </button>
+          </button> -->
+          <div class="dropdown-vaults">
+            <h6 class="mb-0" v-if="state.user.isAuthenticated" @click="getVaults">
+              Add To Vault
+            </h6>
+            <div class="dropdown-content" v-if="state.addKeep == true">
+              <div v-for="vault in state.vaults" :key="vault.id">
+                <p @click="addKeepToVault(vault.id)">
+                  {{ vault.name }}
+                </p>
+              </div>
+            </div>
+          </div>
           <button type="button" class="btn btn-primary" data-dismiss="modal">
             Close
           </button>
@@ -91,9 +113,6 @@ export default {
     })
     return {
       state,
-      test() {
-        console.log(props.keep)
-      },
       deleteKeep() {
         // confirm('are you sure you want to delete')
         Swal.fire({
@@ -130,6 +149,23 @@ export default {
 }
 </script>
 <style scoped>
+.dropdown-vault {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-vaults:hover .dropdown-content {
+  display: block;
+}
 #modal-stats{
   width: 10vw;
 }
@@ -147,5 +183,25 @@ export default {
   position: absolute;
   top: 0px;
   right: 0px;
+}
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  right: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 </style>

@@ -11,8 +11,8 @@
              class="img-fluid my-3"
         >
         <div v-if="page == 'vault'">
-          <p id="remove" v-if="vault.creatorId == state.account.id" class="text-white" @click="removeFromVault()">
-            remove
+          <p id="remove" v-if="vault.creatorId == state.account.id" class="text-white font-bold" @click="removeFromVault()">
+            X
           </p>
         </div>
         <div class="keep-text d-flex">
