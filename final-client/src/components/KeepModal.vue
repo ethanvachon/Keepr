@@ -129,7 +129,6 @@ export default {
               'Deleted!'
             )
             keepsService.delete(props.keep.id)
-            keepsService.getKeeps()
           }
         })
       },
