@@ -57,7 +57,7 @@ namespace final.server.Controllers
       }
       catch (System.Exception e)
       {
-        return BadRequest(id);
+        return BadRequest(e.Message);
       }
     }
   }
