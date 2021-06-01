@@ -8,7 +8,7 @@
              :data-target="'#keep' + keep.id"
              :src="keep.img"
              alt=""
-             class="img-fluid my-3"
+             class="img-fluid my-3 min-sizing"
         >
         <div v-if="page == 'vault'">
           <p id="remove" v-if="vault.creatorId == state.account.id" class="text-white font-bold" @click="removeFromVault()">
@@ -23,9 +23,9 @@
         <img :src="keep.creator.picture" id="profile-img">
       </div>
     </div>
+    <keep-modal :keep="props.keep" :page="props.page" />
   </div>
   <!-- </div> -->
-  <keep-modal :keep="props.keep" :page="props.page" />
 </template>
 <script>
 import { reactive, computed } from 'vue'
@@ -52,12 +52,10 @@ export default {
 }
 </script>
 <style scoped>
-  /* .card {
-    width:100%;
-    height: 300px;
-    border-radius: 5px;
-    background-size:cover !important;
-  } */
+.min-sizing {
+  min-height: 100px;
+  min-width: 100px;
+}
   #remove {
     position: absolute;
     top: 20px;

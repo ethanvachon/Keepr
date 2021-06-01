@@ -36,13 +36,13 @@
           Login
         </button>
 
-        <!-- <div class="dropdown" v-else>
+        <div class="dropdown" v-else>
           <div
             class="dropdown-toggle"
             @click="state.dropOpen = !state.dropOpen"
           >
             <img
-              :src="user.picture"
+              :src="account.picture"
               alt="user photo"
               height="40"
               class="rounded"
@@ -54,11 +54,11 @@
             :class="{ show: state.dropOpen }"
             @click="state.dropOpen = false"
           >
-            <router-link :to="{ name: 'Account' }">
+            <!-- <router-link :to="{ name: 'Account' }">
               <div class="list-group-item list-group-item-action hoverable">
                 Account
               </div>
-            </router-link>
+            </router-link> -->
             <div
               class="list-group-item list-group-item-action hoverable"
               @click="logout"
@@ -66,7 +66,7 @@
               logout
             </div>
           </div>
-        </div> -->
+        </div>
       </span>
     </div>
   </nav>
@@ -85,6 +85,7 @@ export default {
     return {
       state,
       user: computed(() => AppState.user),
+      account: computed(() => AppState.account),
       async login() {
         AuthService.loginWithPopup()
       },
