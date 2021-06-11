@@ -12,6 +12,11 @@ class VaultsService {
     AppState.currentKeeps = res.data
   }
 
+  async returnKeepsByVault(id) {
+    const res = await api.get('api/vaults/' + id + '/keeps')
+    return res.data
+  }
+
   async create(newVault) {
     await api.post('api/vaults', newVault)
     accountService.getVaultsByAccount()

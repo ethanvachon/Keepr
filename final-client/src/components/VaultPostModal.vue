@@ -26,14 +26,16 @@
           <form @submit.prevent="createVault()">
             <input class="m-2 text" type="text" v-model="state.newVault.name" placeholder="name">
             <input class="m-2 text" type="text" v-model="state.newVault.description" placeholder="description">
-            <div class="text m-2 d-flex justify-content-center align-items-center">
-              <label for="private" class="mb-0 pr-1">Private</label>
-              <input type="checkbox" name="private" v-model="state.newVault.isPrivate">
-            </div>
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary">
-                Create
-              </button>
+            <div class="text m-2 d-flex justify-content-around align-items-center">
+              <div class="d-flex justify-content-center align-items-center">
+                <label for="private" class="mb-0 pr-2">Private</label>
+                <input type="checkbox" name="private" v-model="state.newVault.isPrivate">
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary ml-2">
+                  Create
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -42,6 +44,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable vue/one-component-per-file */
 import { reactive } from 'vue'
 import { vaultsService } from '../services/VaultsService'
 import Swal from 'sweetalert2'

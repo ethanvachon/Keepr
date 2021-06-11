@@ -23,7 +23,7 @@
             Home
           </router-link>
           <router-link v-if="user.isAuthenticated" :to="{ name: 'Account' }" class="nav-link">
-            Account
+            Profile
           </router-link>
         </li>
       </ul>

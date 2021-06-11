@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col-6">
         <i class="fas fa-trash" v-if="state.account.id == state.vault.creatorId" @click="deleteVault()"></i>
-        <div class="card mt-3 ml-1" v-if="state.vault.name">
+        <div class="mt-3 ml-1" v-if="state.vault.name">
           <div class="card-body">
-            <h1 class="card-title">
+            <h1 class="card-title border-bottom">
               {{ state.vault.name }}
             </h1>
-            <h3 class="card-title">
+            <h5 class="card-text">
               {{ state.vault.description }}
-            </h3>
+            </h5>
           </div>
         </div>
       </div>
