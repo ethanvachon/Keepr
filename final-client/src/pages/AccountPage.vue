@@ -4,8 +4,6 @@
     <div v-if="state.loaded == true">
       <div class="row border-bottom mt-3" v-if="state.account">
         <div class="col-12 d-flex justify-content-center">
-          <!-- <img :src="state.account.picture" alt="">
-        <h1>{{ state.account.name }}</h1> -->
           <div class="card mb-2">
             <div class="card-body">
               <div class="d-flex justify-content-around align-items-center pb-2">
@@ -15,10 +13,10 @@
                 </h4>
               </div>
               <div class="d-flex justify-content-around">
-                <h4 class="card-title rounded p-1" @click="state.view = 'vaults'">
+                <h4 class="card-title rounded p-1" @click="state.view = 'vaults'" :class="{'bg-dark' : state.view == 'vaults', 'text-white' : state.view == 'vaults'}">
                   Vaults
                 </h4>
-                <h4 class="card-title rounded p-1" @click="state.view = 'keeps'">
+                <h4 class="card-title rounded p-1" @click="state.view = 'keeps'" :class="{'bg-dark' : state.view == 'keeps', 'text-white' : state.view == 'keeps'}">
                   Keeps
                 </h4>
               </div>
