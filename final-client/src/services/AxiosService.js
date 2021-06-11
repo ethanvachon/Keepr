@@ -1,6 +1,6 @@
 import Axios from 'axios'
 // 'https://ethanvach-keepr.herokuapp.com/'
-export const baseURL = 'https://localhost:5001/'
+export const baseURL = 'https://ethanvach-keepr.herokuapp.com/'
 export const api = Axios.create({
   baseURL,
   timeout: 8000
