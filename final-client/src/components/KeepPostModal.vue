@@ -72,7 +72,7 @@ export default {
             })
             keepsService.create(state.newKeep)
           } else {
-            console.log('invalid img id')
+            console.log('invalid img url')
           }
         })
         state.newKeep = {}
